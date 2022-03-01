@@ -1,3 +1,16 @@
 body{
     background-color: #E6E6E6;
 }
+/* spinner style  */
+#spinner{
+    display: none;
+}
+/* error style  */
+#error{
+    color: rgb(91, 102, 102);
+    display: none;
+}
+/* show all */
+#show-all{
+    display: none;
+}
