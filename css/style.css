@@ -9,7 +9,7 @@ span{
     display: none;
 }
 /* error style  */
-#error{
+#error, #empty{
     color: rgb(91, 102, 102);
     display: none;
 }

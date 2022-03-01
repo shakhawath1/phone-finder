@@ -11,15 +11,16 @@ const searchPhone = () => {
     const searchText = document.getElementById('search-field').value;
     toogleSpinner('block');
     toogleSearchResult('hidden');
-    document.getElementById('error').style.display = 'none';
     document.getElementById('search-field').value = '';
     loadPhone(searchText);
+    // document.getElementById('error').style.display = 'none';
 };
 // load phone
 const loadPhone = async searchText => {
     // error handling
-    if (searchText === '') {
-        document.getElementById('error').style.display = 'block';
+    if (searchText == '') {
+        document.getElementById('empty').style.display = 'block';
+        document.getElementById('error').style.display = 'none';
         toogleSpinner('none');
     }
     else {
@@ -27,16 +28,26 @@ const loadPhone = async searchText => {
         const res = await fetch(url);
         const data = await res.json();
         displayPhone(data.data);
-        document.getElementById('error').style.display = 'none';
+        // document.getElementById('error').style.display = 'none';
     }
 };
 // display result
 const displayPhone = phones => {
+    console.log(phones)
     // clean previous result
     const detailsContainer = document.getElementById('display-details');
     detailsContainer.textContent = '';
     const displayContainer = document.getElementById('display-result');
     displayContainer.textContent = '';
+    if (phones.length == 0) {
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('empty').style.display = 'none';
+        console.log('yes');
+    }
+    else {
+        document.getElementById('error').style.display = 'none';
+        document.getElementById('empty').style.display = 'none';
+    };
     // display for 20 phones
     const phones20 = phones.slice(0, 20);
     phones20.forEach(phone => {
