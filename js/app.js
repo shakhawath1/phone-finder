@@ -32,13 +32,14 @@ const loadPhone = async searchText => {
 };
 // display result
 const displayPhone = phones => {
+    // clean previous result
     const detailsContainer = document.getElementById('display-details');
     detailsContainer.textContent = '';
     const displayContainer = document.getElementById('display-result');
     displayContainer.textContent = '';
     // display for 20 phones
     const phones20 = phones.slice(0, 20);
-    // console.log(phones);
+    console.log(phones);
     phones20.forEach(phone => {
         const item = document.createElement('div');
         toogleSpinner('block');
@@ -57,10 +58,13 @@ const displayPhone = phones => {
         `;
         displayContainer.appendChild(item);
     });
+    // display all phones
     if (phones.length > 20) {
         document.getElementById('show-all').style.display = 'block';
-        const showAll = () => {
-            phones.forEach(phone => {
+        document.getElementById('show-all').addEventListener('click', function () {
+            // const showAll = () => {
+            const duePhone = phones.slice(20, phones.length)
+            duePhone.forEach(phone => {
                 const item = document.createElement('div');
                 item.classList.add('col');
                 item.innerHTML = `
@@ -77,7 +81,11 @@ const displayPhone = phones => {
                 `;
                 displayContainer.appendChild(item);
             });
-        };
+            // };
+        });
+        if (phones.length === phones20.length) {
+            document.getElementById('show-all').style.display = 'none';
+        }
     }
     else {
         document.getElementById('show-all').style.display = 'none';
