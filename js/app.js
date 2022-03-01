@@ -4,38 +4,44 @@ const toogleSpinner = displayStyle => {
 };
 const toogleSearchResult = displayStyle => {
     document.getElementById('display-result').style.visibility = displayStyle;
+    document.getElementById('display-details').style.visibility = displayStyle;
 };
 // search phone
 const searchPhone = () => {
     const searchText = document.getElementById('search-field').value;
     toogleSpinner('block');
     toogleSearchResult('hidden');
+    document.getElementById('error').style.display = 'none';
     document.getElementById('search-field').value = '';
     loadPhone(searchText);
 };
 // load phone
 const loadPhone = async searchText => {
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayPhone(data.data);
+    // error handling
+    if (searchText === '') {
+        document.getElementById('error').style.display = 'block';
+        toogleSpinner('none');
+    }
+    else {
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displayPhone(data.data);
+        document.getElementById('error').style.display = 'none';
+    }
 };
 // display result
 const displayPhone = phones => {
+    const detailsContainer = document.getElementById('display-details');
+    detailsContainer.textContent = '';
     const displayContainer = document.getElementById('display-result');
     displayContainer.textContent = '';
-    // error handling
-    if (!phones) {
-        document.getElementById('error').style.display = 'block';
-    }
-    else {
-        document.getElementById('error').style.display = 'none';
-    };
     // display for 20 phones
     const phones20 = phones.slice(0, 20);
-    console.log(phones);
+    // console.log(phones);
     phones20.forEach(phone => {
         const item = document.createElement('div');
+        toogleSpinner('block');
         item.classList.add('col');
         item.innerHTML = `
                 <div class="card h-100 rounded-3">
@@ -92,7 +98,7 @@ const showDetails = phone => {
     const detailsContainer = document.getElementById('display-details');
     detailsContainer.textContent = '';
     const details = document.createElement('div');
-    details.classList.add('card', 'p-3', 'rounded-3');
+    details.classList.add('card', 'p-3', 'rounded-3', 'mx-auto');
     details.innerHTML = `
                 <img src="${phone.image}" class="card-img-top p-3" alt="...">
                 <div class="card-body">
