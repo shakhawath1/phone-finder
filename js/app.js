@@ -39,7 +39,6 @@ const displayPhone = phones => {
     displayContainer.textContent = '';
     // display for 20 phones
     const phones20 = phones.slice(0, 20);
-    console.log(phones);
     phones20.forEach(phone => {
         const item = document.createElement('div');
         toogleSpinner('block');
@@ -83,9 +82,6 @@ const displayPhone = phones => {
             });
             // };
         });
-        if (phones.length === phones20.length) {
-            document.getElementById('show-all').style.display = 'none';
-        }
     }
     else {
         document.getElementById('show-all').style.display = 'none';
@@ -114,6 +110,7 @@ const showDetails = phone => {
                     <p class="card-title">${phone.releaseDate}</p>
                     <h6 class="card-title">${phone.brand}</h6>
                     <p class="card-text">${phone.slug}</p>
+                    <p class="card-text"><span>Main Features</span></p>
                     <p class="card-text"><span>Display:</span> ${phone.mainFeatures.displaySize}</p>
                     <p class="card-text"><span>Chipset:</span> ${phone.mainFeatures.chipSet}</p>
                     <p class="card-text"><span>Memory:</span> ${phone.mainFeatures.memory}</p>
@@ -126,7 +123,6 @@ const showDetails = phone => {
                     <p class="card-text"><span>NFC:</span> ${phone.others.NFC}</p>
                     <p class="card-text"><span>Radio:</span> ${phone.others.Radio}</p>
                     <p class="card-text"><span>USB:</span> ${phone.others.USB}</p>
-                    <p class="card-text"><span>Others</span> ${phone.others.NFC}</p>
                 </div>
             `;
     detailsContainer.appendChild(details);
