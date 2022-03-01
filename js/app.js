@@ -90,15 +90,29 @@ const loadDetails = async phoneId => {
 const showDetails = phone => {
     console.log(phone);
     const detailsContainer = document.getElementById('display-details');
+    detailsContainer.textContent = '';
     const details = document.createElement('div');
-    details.classList.add('card');
+    details.classList.add('card', 'p-3', 'rounded-3');
     details.innerHTML = `
-                <img src="${phone.image}" class="card-img-top" alt="...">
+                <img src="${phone.image}" class="card-img-top p-3" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Name: ${phone.name}</h5>
-                    <p class="card-title">Id: ${phone.releaseDate}</p>
-                    <p class="card-title">Type: ${phone.brand}</p>
+                    <h5 class="card-title">${phone.name}</h5>
+                    <p class="card-title">${phone.releaseDate}</p>
+                    <h6 class="card-title">${phone.brand}</h6>
                     <p class="card-text">${phone.slug}</p>
+                    <p class="card-text"><span>Display:</span> ${phone.mainFeatures.displaySize}</p>
+                    <p class="card-text"><span>Chipset:</span> ${phone.mainFeatures.chipSet}</p>
+                    <p class="card-text"><span>Memory:</span> ${phone.mainFeatures.memory}</p>
+                    <p class="card-text"><span>Storage:</span> ${phone.mainFeatures.storage}</p>
+                    <p class="card-text"><span>Sensors:</span> ${phone.mainFeatures.sensors}</p>
+                    <p class="card-text"><span>Others</span></p>
+                    <p class="card-text"><span>WLAN:</span> ${phone.others.WLAN}</p>
+                    <p class="card-text"><span>Bluetooth:</span> ${phone.others.Bluetooth}</p>
+                    <p class="card-text"><span>GPS:</span> ${phone.others.GPS}</p>
+                    <p class="card-text"><span>NFC:</span> ${phone.others.NFC}</p>
+                    <p class="card-text"><span>Radio:</span> ${phone.others.Radio}</p>
+                    <p class="card-text"><span>USB:</span> ${phone.others.USB}</p>
+                    <p class="card-text"><span>Others</span> ${phone.others.NFC}</p>
                 </div>
             `;
     detailsContainer.appendChild(details);
