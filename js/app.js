@@ -130,7 +130,7 @@ const showDetails = phone => {
                     <p class="card-text"><span>Others Features</span></p>
                     <p class="card-text"><span>WLAN:</span> ${phone?.others?.WLAN ? phone?.others?.WLAN : ''}</p>
                     <p class="card-text"><span>Bluetooth:</span> ${phone?.others?.Bluetooth ? phone?.others?.Bluetooth : ''}</p>
-                    <p class="card-text"><span>GPS:</span> ${phone?.others?.GPS ? phone?.others?.GPS : 'Not available'}</p>
+                    <p class="card-text"><span>GPS:</span> ${phone?.others?.GPS ? phone?.others?.GPS : ''}</p>
                     <p class="card-text"><span>NFC:</span> ${phone?.others?.NFC ? phone?.others?.NFC : ''}</p>
                     <p class="card-text"><span>Radio:</span> ${phone?.others?.Radio ? phone?.others?.Radio : ''}</p>
                     <p class="card-text"><span>USB:</span> ${phone?.others?.USB ? phone?.others?.USB : ''}</p>
