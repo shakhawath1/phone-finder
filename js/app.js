@@ -118,22 +118,22 @@ const showDetails = phone => {
                 <img src="${phone.image}" class="card-img-top p-3" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${phone.name}</h5>
-                    <p class="card-title">${phone.releaseDate}</p>
+                    <p class="card-title">${phone.releaseDate ? phone.releaseDate : 'Release date not available'}</p>
                     <h6 class="card-title">${phone.brand}</h6>
                     <p class="card-text">${phone.slug}</p>
                     <p class="card-text"><span>Main Features</span></p>
-                    <p class="card-text"><span>Display:</span> ${phone.mainFeatures.displaySize}</p>
-                    <p class="card-text"><span>Chipset:</span> ${phone.mainFeatures.chipSet}</p>
-                    <p class="card-text"><span>Memory:</span> ${phone.mainFeatures.memory}</p>
-                    <p class="card-text"><span>Storage:</span> ${phone.mainFeatures.storage}</p>
-                    <p class="card-text"><span>Sensors:</span> ${phone.mainFeatures.sensors}</p>
-                    <p class="card-text"><span>Others</span></p>
-                    <p class="card-text"><span>WLAN:</span> ${phone.others.WLAN}</p>
-                    <p class="card-text"><span>Bluetooth:</span> ${phone.others.Bluetooth}</p>
-                    <p class="card-text"><span>GPS:</span> ${phone.others.GPS}</p>
-                    <p class="card-text"><span>NFC:</span> ${phone.others.NFC}</p>
-                    <p class="card-text"><span>Radio:</span> ${phone.others.Radio}</p>
-                    <p class="card-text"><span>USB:</span> ${phone.others.USB}</p>
+                    <p class="card-text"><span>Display:</span> ${phone.mainFeatures.displaySize ? phone.mainFeatures.displaySize : 'Not available'}</p>
+                    <p class="card-text"><span>Chipset:</span> ${phone.mainFeatures.chipSet ? phone.mainFeatures.chipSet : 'Not available'}</p>
+                    <p class="card-text"><span>Memory:</span> ${phone.mainFeatures.memory ? phone.mainFeatures.memory : 'Not available'}</p>
+                    <p class="card-text"><span>Storage:</span> ${phone.mainFeatures.storage ? phone.mainFeatures.storage : 'Not available'}</p>
+                    <p class="card-text"><span>Sensors:</span> ${phone.mainFeatures.sensors ? phone.mainFeatures.sensors : 'Not available'}</p>
+                    <p class="card-text"><span>Others Features</span></p>
+                    <p class="card-text"><span>WLAN:</span> ${phone?.others?.WLAN ? phone?.others?.WLAN : 'Not available'}</p>
+                    <p class="card-text"><span>Bluetooth:</span> ${phone?.others?.Bluetooth ? phone?.others?.Bluetooth : 'Not available'}</p>
+                    <p class="card-text"><span>GPS:</span> ${phone?.others?.GPS ? phone?.others?.GPS : 'Not available'}</p>
+                    <p class="card-text"><span>NFC:</span> ${phone?.others?.NFC ? phone?.others?.NFC : 'Not available'}</p>
+                    <p class="card-text"><span>Radio:</span> ${phone?.others?.Radio ? phone?.others?.Radio : 'Not available'}</p>
+                    <p class="card-text"><span>USB:</span> ${phone?.others?.USB ? phone?.others?.USB : 'Not available'}</p>
                 </div>
             `;
     detailsContainer.appendChild(details);
