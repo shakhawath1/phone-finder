@@ -72,9 +72,8 @@ const displayPhone = phones => {
     if (phones.length > 20) {
         document.getElementById('show-all').style.display = 'block';
         document.getElementById('show-all').addEventListener('click', function () {
-            // const showAll = () => {
-            const duePhone = phones.slice(20, phones.length)
-            duePhone.forEach(phone => {
+            displayContainer.textContent = '';
+            phones.forEach(phone => {
                 const item = document.createElement('div');
                 item.classList.add('col');
                 item.innerHTML = `
